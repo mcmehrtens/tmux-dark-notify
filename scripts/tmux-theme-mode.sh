@@ -24,7 +24,7 @@ EOF
 
 TMUX_STATED=${XDG_STATE_HOME:-$HOME/.local/state}/tmux
 ! [ -d $TMUX_STATED ] && mkdir -p $TMUX_STATED
-TMUX_THEME_LINK=$TMUX_STATED/tmux-dark-notify-theme.conf
+TMUX_THEME_LINK=$TMUX_STATED/tmux-dark-notify-theme.sh
 
 tmux_get_option() {
 	local option=$1
@@ -50,7 +50,6 @@ tmux_set_theme_mode() {
 		echo "The configured theme is not readable: $theme_path" >&2
 		exit 2
 	fi
-	tmux source-file "$theme_path"
 	ln -sf "$theme_path" $TMUX_THEME_LINK
 }
 
