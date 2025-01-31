@@ -32,5 +32,5 @@ if ! program_is_in_path dark-notify; then
 fi
 
 while :; do
-	dark-notify -c "$TMUX_THEME_SETTER"
+	dark-notify -o -c "$TMUX_THEME_SETTER"
 done
