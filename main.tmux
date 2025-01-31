@@ -5,6 +5,8 @@ set -o errexit
 set -o pipefail
 
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+THEME_SETTER="${CURRENT_DIR}/scripts/tmux-theme-mode.sh"
 RUNNER="${CURRENT_DIR}/scripts/tmux-dark-notify-runner.sh"
 
+$THEME_SETTER -n "$(dark-notify -e)"
 $RUNNER &
