@@ -5,7 +5,7 @@ set -o errexit
 set -o pipefail
 [[ "${TRACE-0}" =~ ^1|t|y|true|yes$ ]] && set -o xtrace
 
-CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SCRIPT_NAME="$(basename $0)"
 TMUX_THEME_SETTER="${CURRENT_DIR}/tmux-theme-mode.sh"
 

@@ -22,7 +22,7 @@ Set tmux dark/light mode.
 Usage: $ ${SCRIPT_NAME} [options] light|dark
 
 Options:
-  -s     Also source ~/.config/tmux/tmux.conf after setting theme
+  -n     Do not source ~/.config/tmux/tmux.conf after setting theme
   -h     Show this help
 EOF
 
@@ -62,13 +62,13 @@ tmux_set_theme_mode() {
 	ln -sf "$theme_path" "$TMUX_THEME_LINK"
 }
 
-source_main_conf=0
+source_main_conf=1
 
 # Parse short options
-while getopts ":sh?" opt; do
+while getopts ":nh?" opt; do
 	case "$opt" in
-	s)
-		source_main_conf=1
+	n)
+		source_main_conf=0
 		;;
 	h | \?)
 		echo "$USAGE"
